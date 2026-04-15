@@ -1,31 +1,48 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ isDark, toggleTheme }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
 
-    const navLinks = ['Home', 'About', 'Collections', 'Gallery', 'Contact'];
+    const navLinks = [
+        { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
+        { name: 'Collections', path: '/collections' },
+        { name: 'Gallery', path: '/gallery' },
+        { name: 'Contact', path: '/contact' },
+    ];
 
     return (
         <header className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 ${isDark ? 'bg-background-dark/80 border-accent/10' : 'bg-white/80 border-primary/10'}`}>
             <div className="max-w-[1440px] mx-auto px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <Link to="/" className="flex items-center gap-3">
                     <div className={isDark ? 'text-accent' : 'text-primary'}>
                         <span className="material-symbols-outlined text-3xl">flare</span>
                     </div>
                     <h2 className={`text-xl md:text-2xl font-serif font-bold tracking-tight ${isDark ? 'text-accent' : 'text-primary'}`}>Nezah Designs</h2>
-                </div>
+                </Link>
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-10">
                     {navLinks.map((item) => (
-                        <a
-                            key={item}
-                            href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
-                            className={`text-xs uppercase tracking-widest font-bold transition-colors ${isDark ? 'text-white/70 hover:text-accent' : 'text-primary/70 hover:text-primary'}`}
+                        <Link
+                            key={item.name}
+                            to={item.path}
+                            className={`text-xs uppercase tracking-widest font-bold transition-all relative ${location.pathname === item.path
+                                    ? (isDark ? 'text-accent' : 'text-primary')
+                                    : (isDark ? 'text-white/70 hover:text-accent' : 'text-primary/70 hover:text-primary')
+                                }`}
                         >
-                            {item}
-                        </a>
+                            {item.name}
+                            {location.pathname === item.path && (
+                                <motion.div
+                                    layoutId="navTab"
+                                    className={`absolute -bottom-1 left-0 w-full h-0.5 ${isDark ? 'bg-accent' : 'bg-primary'}`}
+                                />
+                            )}
+                        </Link>
                     ))}
                 </nav>
 
@@ -39,9 +56,9 @@ const Navbar = ({ isDark, toggleTheme }) => {
                         </span>
                     </button>
                     
-                    <button className="hidden sm:block btn-primary py-2 px-6">
+                    <Link to="/contact" className="hidden sm:block btn-primary py-2 px-6">
                         Consult Now
-                    </button>
+                    </Link>
 
                     {/* Mobile Menu Toggle */}
                     <button 
@@ -66,18 +83,24 @@ const Navbar = ({ isDark, toggleTheme }) => {
                     >
                         <div className="flex flex-col p-6 gap-6">
                             {navLinks.map((item) => (
-                                <a
-                                    key={item}
-                                    href={item === 'Home' ? '#' : `#${item.toLowerCase()}`}
+                                <Link
+                                    key={item.name}
+                                    to={item.path}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-sm uppercase tracking-[0.2em] font-bold ${isDark ? 'text-white/70 shadow-accent' : 'text-primary/70'}`}
+                                    className={`text-sm uppercase tracking-[0.2em] font-bold ${location.pathname === item.path
+                                        ? (isDark ? 'text-accent' : 'text-primary')
+                                        : (isDark ? 'text-white/70 shadow-accent' : 'text-primary/70')}`}
                                 >
-                                    {item}
-                                </a>
+                                    {item.name}
+                                </Link>
                             ))}
-                            <button className="btn-primary w-full py-4 mt-2">
+                            <Link 
+                                to="/contact" 
+                                onClick={() => setIsMenuOpen(false)}
+                                className="btn-primary w-full py-4 mt-2 text-center"
+                            >
                                 Consult Now
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}
