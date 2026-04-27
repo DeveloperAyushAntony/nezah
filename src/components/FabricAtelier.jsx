@@ -16,8 +16,11 @@ const FabricAtelier = ({ isDark }) => {
                         <h2 className={`text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight tracking-tight uppercase ${isDark ? 'text-white' : 'text-primary'}`}>
                             The Soul of the <span className={`${isDark ? 'text-accent' : 'purple-text-gradient'} italic font-serif lowercase`}>stitch.</span>
                         </h2>
-                        <p className={`text-base md:text-xl leading-relaxed mb-8 md:mb-12 font-light max-w-xl ${isDark ? 'text-white/50' : 'text-primary/60'}`}>
+                        <p className={`text-base md:text-xl leading-relaxed mb-6 font-light max-w-xl ${isDark ? 'text-white/50' : 'text-primary/60'}`}>
                             Every Nezah piece begins with a dialogue between thread and weaver. We source heritage silks and laces from preserved regions across the globe.
+                        </p>
+                        <p className={`text-sm md:text-base italic font-serif mb-8 md:mb-12 ${isDark ? 'text-accent/60' : 'text-primary/60'}`}>
+                            "We don't just make clothes; we preserve the secrets whispered from generation to generation."
                         </p>
 
                         <div className="space-y-8 md:space-y-10">

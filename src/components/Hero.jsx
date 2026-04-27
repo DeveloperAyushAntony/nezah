@@ -25,8 +25,11 @@ const Hero = ({ isDark }) => {
                         Nezah <span className={`${isDark ? 'text-accent' : 'purple-text-gradient'} italic`}>Designs</span>
                     </h1>
 
-                    <p className={`text-base sm:text-xl md:text-2xl mb-12 tracking-[0.2em] uppercase font-light ${isDark ? 'text-white/70' : 'text-primary/70'}`}>
+                    <p className={`text-base sm:text-xl md:text-2xl mb-8 tracking-[0.2em] uppercase font-light ${isDark ? 'text-white/70' : 'text-primary/70'}`}>
                         Bespoke Haute Couture • Quality Craftsmanship
+                    </p>
+                    <p className={`text-sm md:text-lg mb-12 italic font-serif ${isDark ? 'text-accent/60' : 'text-primary/60'}`}>
+                        "The needle dances where the heart dreams."
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">

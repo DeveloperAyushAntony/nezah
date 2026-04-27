@@ -4,6 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import bridal1 from '../assets/images/bridal-couture-1.jpg';
 import bridal2 from '../assets/images/bridal-couture-2.jpg';
 import mens1 from '../assets/images/mens-wear-1.jpg';
+import ladies1 from '../assets/images/ladies-wear-1.png';
+import kids1 from '../assets/images/kids-couture-1.png';
+import elders1 from '../assets/images/elders-wear-1.png';
+import custom1 from '../assets/images/custom-design-1.png';
 
 const categories = [
     { id: 'bridal', name: 'Bridal Couture' },
@@ -38,6 +42,42 @@ const products = {
             description: 'Bespoke precision tailoring for the modern gentleman.',
             image: mens1,
             price: '$1,200+'
+        }
+    ],
+    kids: [
+        {
+            id: 4,
+            title: 'Miniature Silk Ensemble',
+            description: 'Pint-sized perfection for the little heir. Crafted with the same devotion as our adult couture.',
+            image: kids1,
+            price: '$450+'
+        }
+    ],
+    ladies: [
+        {
+            id: 5,
+            title: 'Celestial Evening Gown',
+            description: 'A masterpiece of movement and light. Hand-crafted with imported Italian silk and ethereal beadwork.',
+            image: ladies1,
+            price: '$2,800+'
+        }
+    ],
+    elders: [
+        {
+            id: 6,
+            title: 'Heritage Comfort Kurta',
+            description: 'Grace that grows with time. Breathable luxury fabrics for those who have seen it all.',
+            image: elders1,
+            price: '$850+'
+        }
+    ],
+    custom: [
+        {
+            id: 7,
+            title: 'The Dream Sculpt',
+            description: 'Your imagination, our needles. An avant-garde masterpiece unique to your soul.',
+            image: custom1,
+            price: 'By Quote'
         }
     ],
 };
